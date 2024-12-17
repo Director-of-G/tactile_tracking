@@ -1,0 +1,18 @@
+MujocoPlugins:
+  - type: mujoco_ros_control/MujocoRosControlPlugin
+    hardware:
+      type: mujoco_ros_control/DefaultRobotHWSim
+      control_period: 0.001
+      robot_namespace: "leap"
+
+# Publish all joint states -----------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+mujoco_ros_control:
+  pid_gains:
+    joint_0: {p: 600, i: 0, d: 30}
+    joint_1: {p: 600, i: 0, d: 30}
+    joint_2: {p: 600, i: 0, d: 30}
+    joint_3: {p: 600, i: 0, d: 30}

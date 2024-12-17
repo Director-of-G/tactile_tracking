@@ -1,0 +1,30 @@
+<!-- 
+    This file includes extra sites for debug
+ -->
+ <mujocoinclude>
+
+    <!-- First finger -->
+    <body name="fffingertip_marker" mocap="true" >
+        <site name="fffingertip_marker" />
+    </body>
+    <!-- First finger over -->
+
+    <!-- Middle finger -->
+    <body name="mffingertip_marker" mocap="true" >
+        <site name="mffingertip_marker" />
+    </body>
+    <!-- Middle finger over -->
+
+    <!-- Ring finger -->
+    <body name="rffingertip_marker" mocap="true" >
+        <site name="rffingertip_marker" />
+    </body>
+    <!-- Ring finger over -->
+
+    <!-- Thumb -->
+    <body name="thfingertip_marker" mocap="true" >
+        <site name="thfingertip_marker" />
+    </body>
+    <!-- Thumb over -->
+
+</mujocoinclude>

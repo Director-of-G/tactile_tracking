@@ -1,0 +1,85 @@
+<mujocoinclude>
+
+    <asset>
+        <texture type="2d" name="groundplane" builtin="checker" rgb1="0.2 0.3 0.4"
+            rgb2="0.1 0.2 0.3" width="100" height="100" />
+
+        <material name="black" rgba=".2 .2 .2 1" />
+        <material name="MatColl" specular="1" shininess=".3" reflectance="0.5" rgba=".4 .5 .6 1" />
+        <material name="groundplane" texture="groundplane" texrepeat="10 10" />
+
+        <mesh file="palm_lower.stl" />
+        <mesh file="mcp_joint.stl" />
+        <mesh file="pip.stl" />
+        <mesh file="dip.stl" />
+        <mesh file="fingertip.stl" />
+        <mesh file="thumb_pip.stl" />
+        <mesh file="thumb_dip.stl" />
+        <mesh file="thumb_fingertip.stl" />
+    </asset>
+
+    <default>
+        <default class="right_leap">
+            <site size="0.002" rgba="0.5 0.5 0.5 0.3" group="4" />
+            <joint axis="0 0 -1" armature="0.01" />
+            <position inheritrange="1" kp="20" dampratio="1" />
+            <default class="visual">
+                <geom group="2" type="mesh" contype="0" conaffinity="0" density="0" material="black" />
+            </default>
+            <default class="collision">
+                <geom group="3" type="mesh" contype="0" conaffinity="0" />
+            </default>
+            <!--Tactile
+                sensor array geoms-->
+            <default class="D_Array">
+                <site type="sphere" size="0.002" rgba=".8 .8 .8 .0" group="4" />
+            </default>
+
+            <!--Collission
+                geoms-->
+            <default class="DC_Hand">
+                <geom material="MatColl" contype="1" conaffinity="0" group="4" />
+            </default>
+
+            <!-- Collision geoms for taxels -->
+            <default class="DC_Taxel">
+                <geom condim="4" friction="0.4" solimp="0 0.95 0.0001" />
+            </default>
+        </default>
+    </default>
+
+    <contact>
+        <exclude body1="palm_lower" body2="ffmcp_joint" />
+        <exclude body1="palm_lower" body2="mfmcp_joint" />
+        <exclude body1="palm_lower" body2="rfmcp_joint" />
+        <exclude body1="palm_lower" body2="thdip" />
+        <exclude body1="palm_lower" body2="thpip" />
+        <exclude body1="palm_lower" body2="thpip0" />
+        <exclude body1="ffmcp_joint" body2="ffdip" />
+        <exclude body1="rfmcp_joint" body2="rfdip" />
+        <exclude body1="mfmcp_joint" body2="mfdip" />
+    </contact>
+
+    <actuator>
+        <position class="right_leap" name="1" joint="1" />
+        <position class="right_leap" name="0" joint="0" />
+        <position class="right_leap" name="2" joint="2" />
+        <position class="right_leap" name="3" joint="3" />
+        <position class="right_leap" name="5" joint="5" />
+        <position class="right_leap" name="4" joint="4" />
+        <position class="right_leap" name="6" joint="6" />
+        <position class="right_leap" name="7" joint="7" />
+        <position class="right_leap" name="9" joint="9" />
+        <position class="right_leap" name="8" joint="8" />
+        <position class="right_leap" name="10" joint="10" />
+        <position class="right_leap" name="11" joint="11" />
+        <position class="right_leap" name="12" joint="12" />
+        <position class="right_leap" name="13" joint="13" />
+        <position class="right_leap" name="14" joint="14" />
+        <position class="right_leap" name="15" joint="15" />
+    </actuator>
+
+    <!-- Declare touch sensor array -->
+	<include file="touch_sensor_array.xml" />
+
+</mujocoinclude>
